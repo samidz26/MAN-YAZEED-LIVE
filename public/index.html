@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
+
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     >
 
-    <title>مَن يزيد؟</title>
+    <meta
+        name="theme-color"
+        content="#050608"
+    >
+
+    <title>مَن يزيد؟ | TikTok LIVE</title>
 
     <link
         rel="stylesheet"
@@ -19,16 +26,26 @@
 
     <main class="app">
 
+        <!-- ========================================= -->
+        <!-- GAME FRAME -->
+        <!-- ========================================= -->
+
         <section class="game-frame">
 
-            <!-- تأثير الإطار -->
+            <!-- Decorative corners -->
+
+            <span class="frame-corner corner-top-right"></span>
+            <span class="frame-corner corner-top-left"></span>
+            <span class="frame-corner corner-bottom-right"></span>
+            <span class="frame-corner corner-bottom-left"></span>
+
+            <!-- Inner glow -->
+
             <div class="frame-glow"></div>
 
-            <span class="corner corner-tl"></span>
-            <span class="corner corner-tr"></span>
-            <span class="corner corner-bl"></span>
-            <span class="corner corner-br"></span>
-
+            <!-- ===================================== -->
+            <!-- GAME CONTENT -->
+            <!-- ===================================== -->
 
             <div class="game-content">
 
@@ -38,26 +55,69 @@
 
                 <header class="game-header">
 
-                    <div class="brand-small">
-                        LIVE CHALLENGE
+                    <div class="brand-overline">
+                        TIKTOK LIVE GAME
                     </div>
 
                     <h1>
                         مَن يزيد؟
                     </h1>
 
+                    <div class="brand-line">
+                        <span></span>
+                        <i></i>
+                        <span></span>
+                    </div>
+
                     <div
                         id="connection-status"
-                        class="connection-status offline"
+                        class="connection-status disconnected"
                     >
-                        غير متصل
+                        <span class="status-dot"></span>
+                        <span class="status-text">
+                            غير متصل
+                        </span>
                     </div>
 
                 </header>
 
 
                 <!-- ================================= -->
-                <!-- 1. CONNECTION SCREEN -->
+                <!-- STEP INDICATOR -->
+                <!-- ================================= -->
+
+                <div class="step-indicator">
+
+                    <div
+                        class="step active"
+                        data-step="1"
+                    >
+                        <span>1</span>
+                    </div>
+
+                    <div class="step-line"></div>
+
+                    <div
+                        class="step"
+                        data-step="2"
+                    >
+                        <span>2</span>
+                    </div>
+
+                    <div class="step-line"></div>
+
+                    <div
+                        class="step"
+                        data-step="3"
+                    >
+                        <span>3</span>
+                    </div>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- CONNECTION SCREEN -->
                 <!-- ================================= -->
 
                 <section
@@ -65,38 +125,44 @@
                     class="screen active"
                 >
 
-                    <div class="step-indicator">
-                        <span class="step active">1</span>
-                        <span class="step-line"></span>
-                        <span class="step">2</span>
-                        <span class="step-line"></span>
-                        <span class="step">3</span>
+                    <div class="screen-icon connection-icon">
+                        <span>◆</span>
                     </div>
 
-                    <div class="screen-title">
-                        الاتصال بالـ LIVE
-                    </div>
+                    <div class="screen-heading">
 
-                    <p class="screen-description">
-                        أدخل اسم مستخدم TikTok للاتصال بالبث المباشر
-                    </p>
+                        <span class="section-label">
+                            STEP 01
+                        </span>
+
+                        <h2>
+                            الاتصال بالبث
+                        </h2>
+
+                        <p>
+                            أدخل اسم حساب TikTok صاحب البث
+                        </p>
+
+                    </div>
 
 
                     <div class="input-group">
 
                         <label for="tiktok-username">
-                            اسم مستخدم TikTok
+                            اسم المستخدم
                         </label>
 
-                        <div class="username-input">
+                        <div class="input-wrapper">
 
-                            <span>@</span>
+                            <span class="input-prefix">
+                                @
+                            </span>
 
                             <input
                                 id="tiktok-username"
                                 type="text"
-                                placeholder="username"
                                 autocomplete="off"
+                                placeholder="username"
                             >
 
                         </div>
@@ -107,24 +173,36 @@
                     <div
                         id="connection-message"
                         class="message"
-                    >
-                        أدخل اسم المستخدم للبدء
-                    </div>
+                    ></div>
 
 
                     <button
                         id="connect-button"
                         class="primary-button"
+                        type="button"
                     >
-                        <span>اتصال بالـ LIVE</span>
-                        <span class="button-arrow">←</span>
+
+                        <span class="button-icon">
+                            ↗
+                        </span>
+
+                        <span>
+                            اتصال بالبث
+                        </span>
+
                     </button>
+
+
+                    <div class="screen-hint">
+                        <span class="hint-icon">●</span>
+                        يجب أن يكون الحساب في بث مباشر
+                    </div>
 
                 </section>
 
 
                 <!-- ================================= -->
-                <!-- 2. REGISTRATION SCREEN -->
+                <!-- REGISTRATION SCREEN -->
                 <!-- ================================= -->
 
                 <section
@@ -132,35 +210,42 @@
                     class="screen"
                 >
 
-                    <div class="step-indicator">
-                        <span class="step completed">✓</span>
-                        <span class="step-line completed"></span>
-                        <span class="step active">2</span>
-                        <span class="step-line"></span>
-                        <span class="step">3</span>
+                    <div class="screen-heading compact">
+
+                        <span class="section-label">
+                            STEP 02
+                        </span>
+
+                        <h2>
+                            تسجيل اللاعبين
+                        </h2>
+
+                        <p>
+                            أرسل كلمة التسجيل في التعليقات للانضمام
+                        </p>
+
                     </div>
-
-
-                    <div class="screen-title">
-                        تسجيل اللاعبين
-                    </div>
-
-                    <p class="screen-description">
-                        أي شخص يكتب كلمة الانضمام في الـ LIVE يدخل تلقائيًا
-                    </p>
 
 
                     <!-- JOIN KEYWORD -->
 
-                    <div class="join-keyword">
+                    <div class="keyword-card">
 
-                        <span class="keyword-label">
-                            كلمة الانضمام
-                        </span>
+                        <div class="keyword-info">
 
-                        <strong id="join-keyword">
-                            JOIN
-                        </strong>
+                            <span class="keyword-label">
+                                كلمة التسجيل
+                            </span>
+
+                            <strong id="join-keyword">
+                                JOIN
+                            </strong>
+
+                        </div>
+
+                        <div class="keyword-status">
+                            التسجيل مفتوح
+                        </div>
 
                     </div>
 
@@ -169,13 +254,22 @@
 
                     <div class="players-header">
 
-                        <span>
-                            اللاعبون
-                        </span>
+                        <div class="players-title">
 
-                        <strong>
+                            <span class="players-icon">
+                                ♟
+                            </span>
+
+                            <span>
+                                اللاعبون
+                            </span>
+
+                        </div>
+
+                        <div class="players-count">
                             <span id="players-count">0</span>
-                        </strong>
+                            <small>لاعب</small>
+                        </div>
 
                     </div>
 
@@ -187,38 +281,48 @@
                         class="players-list"
                     >
 
-                        <div
-                            id="empty-players"
-                            class="empty-players"
-                        >
+                        <div class="empty-state">
+
                             <div class="empty-icon">
-                                👥
+                                +
                             </div>
 
+                            <strong>
+                                بانتظار اللاعبين
+                            </strong>
+
                             <span>
-                                بانتظار اللاعبين...
+                                أرسل كلمة JOIN في التعليقات
                             </span>
+
                         </div>
 
                     </div>
 
 
-                    <!-- START GAME -->
+                    <!-- START -->
 
                     <button
                         id="start-game-button"
                         class="primary-button"
-                        disabled
+                        type="button"
                     >
-                        <span>ابدأ اللعب</span>
-                        <span class="button-arrow">←</span>
+
+                        <span class="button-icon">
+                            ▶
+                        </span>
+
+                        <span>
+                            ابدأ الجولة
+                        </span>
+
                     </button>
 
                 </section>
 
 
                 <!-- ================================= -->
-                <!-- 3. GAME SCREEN -->
+                <!-- GAME SCREEN -->
                 <!-- ================================= -->
 
                 <section
@@ -226,28 +330,23 @@
                     class="screen"
                 >
 
-                    <div class="step-indicator">
-                        <span class="step completed">✓</span>
-                        <span class="step-line completed"></span>
-                        <span class="step completed">✓</span>
-                        <span class="step-line completed"></span>
-                        <span class="step active">3</span>
-                    </div>
+                    <!-- ROUND TOP -->
 
+                    <div class="round-top">
 
-                    <!-- TIMER -->
-
-                    <div class="game-timer">
-
-                        <div class="timer-label">
-                            وقت المزايدة
+                        <div class="round-label">
+                            الجولة الحالية
                         </div>
 
                         <div
                             id="bid-timer"
-                            class="timer-value"
+                            class="bid-timer"
                         >
                             15
+                        </div>
+
+                        <div class="timer-label">
+                            وقت المزايدة
                         </div>
 
                     </div>
@@ -257,16 +356,16 @@
 
                     <div class="question-card">
 
-                        <div class="question-label">
+                        <div class="question-badge">
                             السؤال
                         </div>
 
-                        <div
+                        <h2
                             id="question-text"
                             class="question-text"
                         >
-                            كم دولة تستطيع ذكرها تقع في قارة آسيا؟
-                        </div>
+                            السؤال سيظهر هنا
+                        </h2>
 
                     </div>
 
@@ -276,16 +375,34 @@
                     <div class="bids-section">
 
                         <div class="bids-header">
-                            المزايدات
+
+                            <div class="bids-title">
+                                المزايدات
+                            </div>
+
+                            <div class="bids-live">
+                                <span></span>
+                                LIVE
+                            </div>
+
                         </div>
+
 
                         <div
                             id="bids-list"
                             class="bids-list"
                         >
 
-                            <div class="empty-bids">
-                                بانتظار المزايدات...
+                            <div class="empty-state small">
+
+                                <div class="empty-icon">
+                                    ↑
+                                </div>
+
+                                <span>
+                                    بانتظار المزايدات...
+                                </span>
+
                             </div>
 
                         </div>
@@ -299,7 +416,7 @@
                         id="game-status"
                         class="game-status"
                     >
-                        الجولة جارية...
+                        الجولة قيد الانتظار
                     </div>
 
 
@@ -308,12 +425,39 @@
                     <button
                         id="next-round-button"
                         class="primary-button hidden"
+                        type="button"
                     >
-                        <span>الجولة التالية</span>
-                        <span class="button-arrow">←</span>
+
+                        <span class="button-icon">
+                            ↻
+                        </span>
+
+                        <span>
+                            الجولة التالية
+                        </span>
+
                     </button>
 
                 </section>
+
+
+                <!-- ================================= -->
+                <!-- FOOTER -->
+                <!-- ================================= -->
+
+                <footer class="game-footer">
+
+                    <span>
+                        مَن يزيد؟
+                    </span>
+
+                    <i></i>
+
+                    <span>
+                        LIVE
+                    </span>
+
+                </footer>
 
             </div>
 
@@ -325,4 +469,5 @@
     <script src="/js/app.js"></script>
 
 </body>
-</html>
+
+    </html> 
