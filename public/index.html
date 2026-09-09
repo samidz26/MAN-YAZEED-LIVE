@@ -1,139 +1,328 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8"><meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>مَن يزيد؟</title>
+    <title>مَن يزيد؟</title>
 
-<link rel="stylesheet" href="/css/style.css">
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+</head>
 
-</head><body><!-- الخلفية العامة -->
-<div class="page-background">
+<body>
 
-    <!-- الإطار الرئيسي -->
-    <main class="game-frame">
+    <main class="app">
 
-        <!-- الزخارف -->
-        <div class="frame-glow"></div>
-        <div class="corner corner-top-right"></div>
-        <div class="corner corner-top-left"></div>
-        <div class="corner corner-bottom-right"></div>
-        <div class="corner corner-bottom-left"></div>
+        <section class="game-frame">
 
-        <!-- محتوى اللعبة -->
-        <div class="game-content">
+            <!-- تأثير الإطار -->
+            <div class="frame-glow"></div>
 
-            <!-- الشعار -->
-            <header class="game-header">
-                <div class="game-logo">
-                    <span class="logo-small">LIVE CHALLENGE</span>
-                    <h1>مَن يزيد؟</h1>
-                </div>
-            </header>
+            <span class="corner corner-tl"></span>
+            <span class="corner corner-tr"></span>
+            <span class="corner corner-bl"></span>
+            <span class="corner corner-br"></span>
 
-            <!-- المؤقت -->
-            <section class="timer-area">
-                <div class="timer-label">الوقت</div>
-                <div class="timer">15</div>
-            </section>
 
-            <!-- السؤال -->
-            <section class="question-area">
+            <div class="game-content">
 
-                <div class="question-label">
-                    السؤال
-                </div>
+                <!-- ================================= -->
+                <!-- HEADER -->
+                <!-- ================================= -->
 
-                <h2>
-                    كم دولة تستطيع ذكرها تقع في قارة آسيا؟
-                </h2>
+                <header class="game-header">
 
-            </section>
+                    <div class="brand-small">
+                        LIVE CHALLENGE
+                    </div>
 
-            <!-- منطقة المزايدات -->
-            <section class="bids-area">
+                    <h1>
+                        مَن يزيد؟
+                    </h1>
 
-                <div class="section-title">
-                    المزايدات
-                </div>
+                    <div
+                        id="connection-status"
+                        class="connection-status offline"
+                    >
+                        غير متصل
+                    </div>
 
-                <div class="bids-list">
+                </header>
 
-                    <div class="bid-player">
-                        <div class="player-avatar">
-                            👤
+
+                <!-- ================================= -->
+                <!-- 1. CONNECTION SCREEN -->
+                <!-- ================================= -->
+
+                <section
+                    id="connection-screen"
+                    class="screen active"
+                >
+
+                    <div class="step-indicator">
+                        <span class="step active">1</span>
+                        <span class="step-line"></span>
+                        <span class="step">2</span>
+                        <span class="step-line"></span>
+                        <span class="step">3</span>
+                    </div>
+
+                    <div class="screen-title">
+                        الاتصال بالـ LIVE
+                    </div>
+
+                    <p class="screen-description">
+                        أدخل اسم مستخدم TikTok للاتصال بالبث المباشر
+                    </p>
+
+
+                    <div class="input-group">
+
+                        <label for="tiktok-username">
+                            اسم مستخدم TikTok
+                        </label>
+
+                        <div class="username-input">
+
+                            <span>@</span>
+
+                            <input
+                                id="tiktok-username"
+                                type="text"
+                                placeholder="username"
+                                autocomplete="off"
+                            >
+
                         </div>
 
-                        <div class="player-info">
-                            <strong>سامي</strong>
-                            <span>يزيد إلى</span>
-                        </div>
-
-                        <div class="bid-number">
-                            8
-                        </div>
                     </div>
 
 
-                    <div class="bid-player">
-                        <div class="player-avatar">
-                            👤
-                        </div>
-
-                        <div class="player-info">
-                            <strong>محمد</strong>
-                            <span>يزيد إلى</span>
-                        </div>
-
-                        <div class="bid-number">
-                            12
-                        </div>
+                    <div
+                        id="connection-message"
+                        class="message"
+                    >
+                        أدخل اسم المستخدم للبدء
                     </div>
 
 
-                    <div class="bid-player active">
-                        <div class="player-avatar">
-                            👤
+                    <button
+                        id="connect-button"
+                        class="primary-button"
+                    >
+                        <span>اتصال بالـ LIVE</span>
+                        <span class="button-arrow">←</span>
+                    </button>
+
+                </section>
+
+
+                <!-- ================================= -->
+                <!-- 2. REGISTRATION SCREEN -->
+                <!-- ================================= -->
+
+                <section
+                    id="registration-screen"
+                    class="screen"
+                >
+
+                    <div class="step-indicator">
+                        <span class="step completed">✓</span>
+                        <span class="step-line completed"></span>
+                        <span class="step active">2</span>
+                        <span class="step-line"></span>
+                        <span class="step">3</span>
+                    </div>
+
+
+                    <div class="screen-title">
+                        تسجيل اللاعبين
+                    </div>
+
+                    <p class="screen-description">
+                        أي شخص يكتب كلمة الانضمام في الـ LIVE يدخل تلقائيًا
+                    </p>
+
+
+                    <!-- JOIN KEYWORD -->
+
+                    <div class="join-keyword">
+
+                        <span class="keyword-label">
+                            كلمة الانضمام
+                        </span>
+
+                        <strong id="join-keyword">
+                            JOIN
+                        </strong>
+
+                    </div>
+
+
+                    <!-- PLAYERS HEADER -->
+
+                    <div class="players-header">
+
+                        <span>
+                            اللاعبون
+                        </span>
+
+                        <strong>
+                            <span id="players-count">0</span>
+                        </strong>
+
+                    </div>
+
+
+                    <!-- PLAYERS LIST -->
+
+                    <div
+                        id="players-list"
+                        class="players-list"
+                    >
+
+                        <div
+                            id="empty-players"
+                            class="empty-players"
+                        >
+                            <div class="empty-icon">
+                                👥
+                            </div>
+
+                            <span>
+                                بانتظار اللاعبين...
+                            </span>
                         </div>
 
-                        <div class="player-info">
-                            <strong>أحمد</strong>
-                            <span>يزيد إلى</span>
+                    </div>
+
+
+                    <!-- START GAME -->
+
+                    <button
+                        id="start-game-button"
+                        class="primary-button"
+                        disabled
+                    >
+                        <span>ابدأ اللعب</span>
+                        <span class="button-arrow">←</span>
+                    </button>
+
+                </section>
+
+
+                <!-- ================================= -->
+                <!-- 3. GAME SCREEN -->
+                <!-- ================================= -->
+
+                <section
+                    id="game-screen"
+                    class="screen"
+                >
+
+                    <div class="step-indicator">
+                        <span class="step completed">✓</span>
+                        <span class="step-line completed"></span>
+                        <span class="step completed">✓</span>
+                        <span class="step-line completed"></span>
+                        <span class="step active">3</span>
+                    </div>
+
+
+                    <!-- TIMER -->
+
+                    <div class="game-timer">
+
+                        <div class="timer-label">
+                            وقت المزايدة
                         </div>
 
-                        <div class="bid-number">
+                        <div
+                            id="bid-timer"
+                            class="timer-value"
+                        >
                             15
                         </div>
+
                     </div>
 
-                </div>
 
-            </section>
+                    <!-- QUESTION -->
 
-            <!-- منطقة الحالة -->
-            <section class="status-area">
-                <span class="status-dot"></span>
-                <span>بانتظار المزايدات...</span>
-            </section>
+                    <div class="question-card">
 
-            <!-- التحكم -->
-            <footer class="game-controls">
+                        <div class="question-label">
+                            السؤال
+                        </div>
 
-                <button class="main-button">
-                    ابدأ الجولة
-                </button>
+                        <div
+                            id="question-text"
+                            class="question-text"
+                        >
+                            كم دولة تستطيع ذكرها تقع في قارة آسيا؟
+                        </div>
 
-            </footer>
+                    </div>
 
-        </div>
+
+                    <!-- BIDS -->
+
+                    <div class="bids-section">
+
+                        <div class="bids-header">
+                            المزايدات
+                        </div>
+
+                        <div
+                            id="bids-list"
+                            class="bids-list"
+                        >
+
+                            <div class="empty-bids">
+                                بانتظار المزايدات...
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- GAME STATUS -->
+
+                    <div
+                        id="game-status"
+                        class="game-status"
+                    >
+                        الجولة جارية...
+                    </div>
+
+
+                    <!-- NEXT ROUND -->
+
+                    <button
+                        id="next-round-button"
+                        class="primary-button hidden"
+                    >
+                        <span>الجولة التالية</span>
+                        <span class="button-arrow">←</span>
+                    </button>
+
+                </section>
+
+            </div>
+
+        </section>
 
     </main>
 
-</div>
 
-<script src="/js/app.js"></script>
+    <script src="/js/app.js"></script>
 
 </body>
-  </html> 
+</html>
